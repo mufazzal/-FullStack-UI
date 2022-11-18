@@ -1,0 +1,12 @@
+{
+  "siteName": "Reagieren lernen",
+  "name_label": "Namnze",
+  "welcomeMessage": "Hallo, {{user}}, willkommen zurück!",
+  "label_login": "Log in DE",
+  "label_logout": "Log out DE",
+  "label_home": "Home DE",
+  "label_support": "Support DE",
+  "label_order": "Order DE",
+  "label_services": "Services DE"
+  
+}

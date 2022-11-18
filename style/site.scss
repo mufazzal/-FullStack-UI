@@ -1,0 +1,17 @@
+@import "~antd/dist/antd.css";
+
+@font-face {
+    font-family: 'My Open Sans Italic';
+    src: url('../assets/fonts/OpenSans-Italic-VariableFont_wdth_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+body {
+    margin: 0;
+    font-family: 'My Open Sans Italic', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+  
+

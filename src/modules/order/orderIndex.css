@@ -1,0 +1,17 @@
+.orderIndex{
+    background-image: url(../../../assets/images/order_icon.png);
+    background-repeat: repeat;
+
+}
+
+.orderIndex .orderIndexheader{
+    background-color: #E7E3EB;
+}
+
+.orderIndex .orderIndexfooter {
+    background-color: #6200EE;
+}
+
+.orderIndex .orderIndexOrderList {
+    color: #FFF;
+}

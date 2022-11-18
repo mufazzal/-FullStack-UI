@@ -1,0 +1,11 @@
+{
+    "siteName": "Learn React",
+    "name_label": "Name",
+    "welcomeMessage": "Hello, {{user}} welcome back!",
+    "label_login": "Log in",
+    "label_logout": "Log out",
+    "label_home": "Home",
+    "label_support": "Support",
+    "label_order": "Order",
+    "label_services": "Services"
+  }
