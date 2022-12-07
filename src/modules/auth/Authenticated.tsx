@@ -8,14 +8,17 @@ import Home from '@modules/home'
 import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom'
 import loadable from '@loadable/component'
 import store from '../../redux/store'
-import { useAuth0 } from '@auth0/auth0-react'
-import LogoutButton from './LogoutButton'
+
 import { BaseProps } from '@modals/basePropsInterface'
 import { Provider } from 'react-redux'
 import builConfig from '../../../appConfig/buildConfig'
 const { Header, Content, Footer } = Layout
-import { useTranslation } from "react-i18next";
 import { loadModuleTxFile } from '../../../i18n/i18n'
+import { ProtectedLayout } from './PRotectedRoute'
+import LandingLayout from './LandingLayout'
+import LandingPage from '@modules/LandingPage'
+import LoginButton from './LoginButton'
+import { AboutUs } from '@modules/About'
 
 // import OrderIndex from '@modules/order/index'
 // import SupportIndex from '@modules/support/index'
@@ -39,19 +42,46 @@ const SupportIndex = loadable(async () => {
 
 interface AuthenticatedOwnProps extends BaseProps {
   onLogout: () => void
+  onLogin: (access_token: string) => void
 }
 
 const Authenticated: React.FC<AuthenticatedOwnProps> = (props: AuthenticatedOwnProps) => {
-  const { user } = useAuth0()
-  const { t } = useTranslation();
+
 
   return (
     <Provider store={store}>
       <Layout className="layout">
-        {t('welcomeMessage', {user: user?.name})}
-        <LogoutButton onLogout={props.onLogout} />
+
         <BrowserRouter>
-          <Header>
+{/* 
+        <Header>
+            <NavLink to="/"> {t('label_home')} </NavLink>
+            <NavLink to="/order"> {t('label_order')} </NavLink>
+            <NavLink to="/Service"> {t('label_services')} </NavLink>
+            <NavLink to="/support"> {t('label_support')} </NavLink>
+          </Header> */}
+          <Content>
+            <Routes>
+              <Route>
+                <Route element={<LandingLayout />}>
+                  <Route path="" element={<LandingPage onLogin={props.onLogin}/>} />
+                  <Route path="about" element={<AboutUs />} />
+                </Route>
+
+                <Route element={<ProtectedLayout />} >                
+                  <Route path="/home" element={<Home onLogout={props.onLogout}/>} />
+                  <Route path="/order" element={<OrderIndex />} />
+                  <Route path="/service" element={<ServiceIndex />} />
+                  <Route path="/support" element={<SupportIndex />} />
+              </Route>
+
+              </Route>   
+
+            </Routes>
+          </Content>
+
+          
+          {/* <Header>
             <NavLink to="/"> {t('label_home')} </NavLink>
             <NavLink to="/order"> {t('label_order')} </NavLink>
             <NavLink to="/Service"> {t('label_services')} </NavLink>
@@ -64,7 +94,10 @@ const Authenticated: React.FC<AuthenticatedOwnProps> = (props: AuthenticatedOwnP
               <Route path="/service" element={<ServiceIndex />} />
               <Route path="/support" element={<SupportIndex />} />
             </Routes>
-          </Content>
+          </Content> */}
+
+
+
         </BrowserRouter>
         <Footer>
           {

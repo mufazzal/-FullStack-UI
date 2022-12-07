@@ -1,4 +1,4 @@
-import { SearchOutlined } from '@ant-design/icons'
+import SearchOutlined from '@ant-design/icons/SearchOutlined'
 import { BaseProps } from '@modals/basePropsInterface'
 // import { Button, Radio, RadioChangeEvent } from 'antd';
 import Button from 'antd/es/button'

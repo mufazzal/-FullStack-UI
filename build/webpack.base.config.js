@@ -46,7 +46,7 @@ module.exports = (env) => {
         output: {
             path: path.join(paths.DIST, env),
             filename: '[name]-bundle.js',
-            publicPath: isDevServer ? '' : '/public/'
+            publicPath: isDevServer ? '/' : '/public/'
         },
 
         module: {

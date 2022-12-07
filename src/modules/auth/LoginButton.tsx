@@ -19,28 +19,29 @@ const LoginButton: React.FC<LoginButtonOwnProps> = (props: LoginButtonOwnProps) 
 
   const { t } = useTranslation();
 
-  useEffect(() => {
-    if (user?.name) {
-      setLoading(true)
-      void getAccessTokenWithPopup({ scope: 'offline_access read:homeWidget read:supportWidget', audience: 'https://mufreact' })
-        .then(res => {
-          setLoading(false)
-          console.log('getAccessTokenWithPopup --> ', res)
-          setIsTokenGenerated(true)
-          props.onLogin(res)
-        }).catch(_error => {
-          setLoading(false)
-          setError('Something went wrong with Token Generation')
-        })
-    }
-  }, [user?.name])
+//   useEffect(() => {
+// console.log('user?.name', user?.name)    
+//     if (user?.name) {
+//       setLoading(true)
+//       void getAccessTokenWithPopup({ scope: 'offline_access read:homeWidget read:supportWidget', audience: 'https://mufreact' })
+//         .then(res => {
+//           setLoading(false)
+//           console.log('getAccessTokenWithPopup --> ', res)
+//           setIsTokenGenerated(true)
+//           props.onLogin(res)
+//         }).catch(_error => {
+//           setLoading(false)
+//           setError('Something went wrong with Token Generation')
+//         })
+//     }
+//   }, [user?.name])
 
   const attempLogin = () => {
     setLoading(true)
     void loginWithRedirect()
-      .then((res: any) => {
-        console.log('loginWithRedirect', res)
-      })
+      .then((resLogin: any) => {
+        console.log('Login popup opened', resLogin)
+      }) 
   }
 
   return <Button

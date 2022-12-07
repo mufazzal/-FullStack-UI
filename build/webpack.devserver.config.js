@@ -16,16 +16,20 @@ const webpackDevConfig = {
         static: './dist/dev',
         port: 3100,
         hot: true,
+        historyApiFallback: true,
         proxy: {
-            '/locales/*/*.json': {
+
+            '*': {
                 selfHandleResponse: true,
                 bypass(req, resp) {
-console.log('-----handling-----', req.path)
-                    const [_match, lang, ns] = req.url.match(/locales\/([-\w]+)\/([-\w]+).json/)
-                    const txPath = path.join(paths.i18n, 'locales', lang, ns+".json")
-console.log('webpack.dev.server : local', lang, ns, txPath)
-                    resp.header("Content-Type", "application/json")                    
-                    fs.createReadStream(txPath).pipe(resp);
+                    console.log('-----handling-----', req.path)
+                    if(req.url.includes('locales') && req.url.includes('.json')) { // /locales/*/*.json
+                        const [_match, lang, ns] = req.url.match(/locales\/([-\w]+)\/([-\w]+).json/)
+                        const txPath = path.join(paths.i18n, 'locales', lang, ns+".json")
+    console.log('webpack.dev.server : local', lang, ns, txPath)
+                        resp.header("Content-Type", "application/json")                    
+                        fs.createReadStream(txPath).pipe(resp);
+                    }
                 },
             },
             '/api/**': {
@@ -36,6 +40,14 @@ console.log('webpack.dev.server : local', lang, ns, txPath)
                     console.log('webpack.dev.server', req.path, 'MOVED TO', '????')
                 }
             }
+            // '/u/*-bundle.js': {
+            //     target: 'http://localhost:3100/',
+            //     secure: false,
+            //     changeOrigin: true,
+            //     pathRewrite: {
+            //         '^/u' : ''
+            //       }          
+            // }            
         }
     },
     mode: 'development',

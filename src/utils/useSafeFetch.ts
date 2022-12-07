@@ -17,8 +17,8 @@ const useSafeFetch: any = (url: string, callNow: boolean, options: any) => {
   
   const fetchSafely: () => Promise<Response> = async () => {
     setLoading(true)
-    const accessToken: string = (window as any).access_token
-    return await fetch(url, { ...options, headers: { Authorization: `Bearer ${accessToken}` } })
+    // const accessToken: string = (window as any).access_token
+    return await fetch(url, { ...options, headers: { Authorization: `Bearer ${localStorage.getItem('access_token')}` } })
       .then(async (out: Response) => {
         // await new Promise((r,rj) => {setTimeout(()=>r("ok"), 2000)})
 
