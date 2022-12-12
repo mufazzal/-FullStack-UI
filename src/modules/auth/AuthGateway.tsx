@@ -62,7 +62,7 @@ const AuthGateway = () => {
       </Spin>
   }
 
-  if (isLogin) {``
+  if (isLogin) {
     return renderAuthenticated()
   } else {
     return renderUnAuthenticated()
