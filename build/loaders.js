@@ -24,6 +24,20 @@ const scssLoader = (isMiniCssPlugin) => ({
     use: [isMiniCssPlugin ? MiniCssExtractPlugin.loader : "style-loader", "css-loader", "sass-loader"],  //style-loader
 })
 
+const lessLoader = (isMiniCssPlugin) => ({
+    test: /\.less$/i,
+    use: [{
+      loader: isMiniCssPlugin ? MiniCssExtractPlugin.loader : 'style-loader'
+    }, {
+      loader: 'css-loader'
+    }, {
+      loader: 'less-loader',
+      options: {
+        lessOptions: { javascriptEnabled: true }
+      }
+    }]
+  })
+  
 const otherLoaders = [
     {
         test: /\.(woff|woff2|eot|ttf)$/,
@@ -47,5 +61,5 @@ const otherLoaders = [
 ]
 
 module.exports = {
-    babelLoader, cssLoader, scssLoader, otherLoaders
+    babelLoader, cssLoader, scssLoader, otherLoaders, lessLoader
 }

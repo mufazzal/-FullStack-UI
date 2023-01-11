@@ -2,7 +2,7 @@
 const path = require('path');
 const paths = require('./paths');
 const { PROD, DEV, STAGE } = require('./_mode')
-const { babelLoader, cssLoader, scssLoader, otherLoaders } = require('./loaders')
+const { babelLoader, cssLoader, scssLoader, otherLoaders, lessLoader } = require('./loaders')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -41,12 +41,13 @@ module.exports = (env) => {
 
     return {
         entry: {
-            main: path.join(paths.SRC, 'index.tsx')
+            main: [path.join(paths.SRC, 'index.tsx')]
         },
         output: {
             path: path.join(paths.DIST, env),
             filename: '[name]-bundle.js',
-            publicPath: isDevServer ? '/' : '/public/'
+            publicPath: isDevServer ? '/' : '/public/',
+            clean: true,
         },
 
         module: {
@@ -54,6 +55,7 @@ module.exports = (env) => {
                 babelLoader(isDevServer),
                 cssLoader(isMiniCssPlugin),
                 scssLoader(isMiniCssPlugin),
+                lessLoader(isMiniCssPlugin),
                 ...otherLoaders
             ]
         },
@@ -68,8 +70,8 @@ module.exports = (env) => {
             }
         },
         plugins: [
-            progressPluginInst,
             new CleanWebpackPlugin(),
+            progressPluginInst,
             htmlWebpackPluginInst,
             new ContextReplacementPlugin(/moment[/\\]locale$/, /en|it/),
             definePluginInst

@@ -4,7 +4,7 @@ const { PROD, DEV, STAGE } = require('./_mode')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const paths = require('./paths');
 const path = require('path');
-const { getCopyAssetPlugin } = require('./plugin')
+const { getCopyAssetPlugin, getCopyExpressServer, installProdDependenciesOnly } = require('./plugin')
 
 const webpackBaseConfig = require('./webpack.base.config')
 const webpackBaseStageConfig = webpackBaseConfig(STAGE)
@@ -22,7 +22,9 @@ const webpackStageConfig = {
     plugins: [
         ...webpackBaseStageConfig.plugins,
         bundleAnalyzerPluginInst,
-        getCopyAssetPlugin(STAGE)
+        getCopyAssetPlugin(STAGE),
+        getCopyExpressServer(STAGE),
+        installProdDependenciesOnly(STAGE)
     ]
 }
 module.exports = webpackStageConfig

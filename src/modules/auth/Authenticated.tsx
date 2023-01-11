@@ -40,6 +40,30 @@ const SupportIndex = loadable(async () => {
   return await import('@modules/support/index')
 })
 
+const SaleIndex = loadable(async () => {
+  return await import('@modules/liveSale')
+})
+
+const UploadDemos = loadable(async () => {
+  return await import('@modules/uploadDemos/uploadDemos')
+})
+
+const UseRefDemo = loadable(async () => {
+  return await import('@modules/useRefDemo/useRefDemo')
+})
+
+const DebounceHookSample = loadable(async () => {
+  return await import('@modules/debounceHookDemo/debounceHookSample')
+})
+
+const RetryPromiseHookSample = loadable(async () => {
+  return await import('@modules/retryPromise/retryPromiseHookSample')
+})
+
+const RoutingDemo = loadable(async () => {
+  return await import('@modules/RoutingDemo/RoutingDemo')
+})
+
 interface AuthenticatedOwnProps extends BaseProps {
   onLogout: () => void
   onLogin: (access_token: string) => void
@@ -73,6 +97,12 @@ const Authenticated: React.FC<AuthenticatedOwnProps> = (props: AuthenticatedOwnP
                   <Route path="/order" element={<OrderIndex />} />
                   <Route path="/service" element={<ServiceIndex />} />
                   <Route path="/support" element={<SupportIndex />} />
+                  <Route path="/sale" element={<SaleIndex />} />
+                  <Route path="/uploadDemos" element={<UploadDemos />} />
+                  <Route path="/useRef" element={<UseRefDemo />} />                  
+                  <Route path="/debounceDemo" element={<DebounceHookSample />} />                  
+                  <Route path="/retryPromise" element={<RetryPromiseHookSample />} />                  
+                  <Route path="/routing_demo/:urlParm1/:urlParm2" element={<RoutingDemo />} />                  
               </Route>
 
               </Route>   

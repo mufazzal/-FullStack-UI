@@ -4,6 +4,8 @@ module.exports = (env, argv) => {
     console.log(env, argv)            
     if (env.WEBPACK_SERVE === true && env._mode === DEV) {
         return require('./build/webpack.devserver.config')
+    } else if(env._mode === DEV) {
+        return require('./build/webpack.expdevserver.config')
     }
     else {
         if (env._mode === STAGE) {

@@ -27,7 +27,7 @@ export interface SetOrderHomeWidgetErrorAction extends BaseAction {
 /*eslint-disable */
 export const fetchOrderHWData = () => {
   return (dispatch: Dispatch<any>, getState: any) => {
-    axios.get('http://localhost:3010/api/homeWidget', { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } })
+    axios.get('/api/homeWidget', { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } })
       .then((res: AxiosResponse) => {
         dispatch(setOrderHomeWidgetErrorAction(undefined, undefined))
         dispatch(setOrderHomeWidgetAction(res.data.totalOrder, res.data.pendingOrder, res.data.canceledOrder, new Date().getTime() + ''))

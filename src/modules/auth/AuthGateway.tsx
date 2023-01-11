@@ -21,7 +21,7 @@ const AuthGateway = () => {
       setLoading(true)
       console.log('Requestingtoken for user ', user?.name)
 
-      void getAccessTokenWithPopup({ scope: 'offline_access read:homeWidget read:supportWidget', audience: 'https://mufreact' })
+      void getAccessTokenWithPopup({ scope: 'offline_access apiAccessViaFrontEnd read:homeWidget read:supportWidget', audience: 'https://mufreact' })
         .then((res: any) => {
           setLoading(false)
           setError(undefined)

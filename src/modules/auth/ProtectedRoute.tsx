@@ -19,6 +19,13 @@ export const ProtectedLayout = () => {
             <NavLink to="/order"> {t('label_order')} </NavLink>
             <NavLink to="/Service"> {t('label_services')} </NavLink>
             <NavLink to="/support"> {t('label_support')} </NavLink>
+            <NavLink to="/sale"> Sale </NavLink>
+            <NavLink to="/uploadDemos"> UploadDemos </NavLink>
+            <NavLink to="/useRef"> UseRef </NavLink>
+            <NavLink to="/debounceDemo"> Debounce </NavLink>
+            <NavLink to="/retryPromise"> Retry Promise </NavLink>
+            
+            
           </Header>
       <Outlet />
     </div>
