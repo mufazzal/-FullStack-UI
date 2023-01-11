@@ -1,7 +1,7 @@
 pipeline {
     tools {nodejs "nodejs"}
     environment {
-        build_mode: "stage" 
+        build_mode = "stage" 
         finalArtifactName = "$GIT_BRANCH.$GIT_COMMIT.$BUILD_ID" + ".zip"
     }
     stages {
