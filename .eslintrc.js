@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   env: {
     browser: true,
@@ -26,6 +28,9 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': ['off'],
     '@typescript-eslint/naming-convention': ['off'],
     'tn/handle-callback-err': ['off'],
+    'react/react-in-jsx-scope': ['off'],
+    '@typescript-eslint/restrict-plus-operands': ['off'],
+    'no-case-declarations': ['off'],
     '@typescript-eslint/no-useless-constructor': ['off']
   }
 }

@@ -12,13 +12,13 @@ import store from '../../redux/store'
 import { BaseProps } from '@modals/basePropsInterface'
 import { Provider } from 'react-redux'
 import builConfig from '../../../appConfig/buildConfig'
-const { Header, Content, Footer } = Layout
 import { loadModuleTxFile } from '../../../i18n/i18n'
 import { ProtectedLayout } from './PRotectedRoute'
 import LandingLayout from './LandingLayout'
 import LandingPage from '@modules/LandingPage'
 import LoginButton from './LoginButton'
 import { AboutUs } from '@modules/About'
+const { Header, Content, Footer } = Layout
 
 // import OrderIndex from '@modules/order/index'
 // import SupportIndex from '@modules/support/index'
@@ -70,14 +70,12 @@ interface AuthenticatedOwnProps extends BaseProps {
 }
 
 const Authenticated: React.FC<AuthenticatedOwnProps> = (props: AuthenticatedOwnProps) => {
-
-
   return (
     <Provider store={store}>
       <Layout className="layout">
 
         <BrowserRouter>
-{/* 
+{/*
         <Header>
             <NavLink to="/"> {t('label_home')} </NavLink>
             <NavLink to="/order"> {t('label_order')} </NavLink>
@@ -92,25 +90,24 @@ const Authenticated: React.FC<AuthenticatedOwnProps> = (props: AuthenticatedOwnP
                   <Route path="about" element={<AboutUs />} />
                 </Route>
 
-                <Route element={<ProtectedLayout />} >                
+                <Route element={<ProtectedLayout />} >
                   <Route path="/home" element={<Home onLogout={props.onLogout}/>} />
                   <Route path="/order" element={<OrderIndex />} />
                   <Route path="/service" element={<ServiceIndex />} />
                   <Route path="/support" element={<SupportIndex />} />
                   <Route path="/sale" element={<SaleIndex />} />
                   <Route path="/uploadDemos" element={<UploadDemos />} />
-                  <Route path="/useRef" element={<UseRefDemo />} />                  
-                  <Route path="/debounceDemo" element={<DebounceHookSample />} />                  
-                  <Route path="/retryPromise" element={<RetryPromiseHookSample />} />                  
-                  <Route path="/routing_demo/:urlParm1/:urlParm2" element={<RoutingDemo />} />                  
+                  <Route path="/useRef" element={<UseRefDemo />} />
+                  <Route path="/debounceDemo" element={<DebounceHookSample />} />
+                  <Route path="/retryPromise" element={<RetryPromiseHookSample />} />
+                  <Route path="/routing_demo/:urlParm1/:urlParm2" element={<RoutingDemo />} />
               </Route>
 
-              </Route>   
+              </Route>
 
             </Routes>
           </Content>
 
-          
           {/* <Header>
             <NavLink to="/"> {t('label_home')} </NavLink>
             <NavLink to="/order"> {t('label_order')} </NavLink>
@@ -126,11 +123,10 @@ const Authenticated: React.FC<AuthenticatedOwnProps> = (props: AuthenticatedOwnP
             </Routes>
           </Content> */}
 
-
-
         </BrowserRouter>
         <Footer>
           {
+            // eslint-disable-next-line
             `${builConfig.STAGE} | ${builConfig.VERSION} | ${builConfig.IS_NODE_PRODUCTION} | ${builConfig.BUILD}`
           }
         </Footer>

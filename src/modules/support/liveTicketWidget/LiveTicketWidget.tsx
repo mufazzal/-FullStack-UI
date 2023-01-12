@@ -16,7 +16,7 @@ interface LiveTicketWidgetOwnProps extends BaseProps {
 
 const LiveTicketWidget: React.FC<LiveTicketWidgetOwnProps> = (props: LiveTicketWidgetOwnProps) => {
   const [fetchSafely, safeFetchLoading, safeFetchResponse, safeFetchError] =
-        useSafeFetch('/api/supportWidget', false, null) //http://localhost:3010
+        useSafeFetch('/api/supportWidget', false, null) // http://localhost:3010
 
   const [callCounter, setCallCounter] = React.useState<number>(0)
   const [supportSnapshot, setSupportSnapshot] = React.useState<SupportSnapshot | undefined>(undefined)

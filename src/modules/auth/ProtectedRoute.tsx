@@ -1,15 +1,15 @@
-import { Navigate, Outlet, NavLink } from "react-router-dom";
+import { Navigate, Outlet, NavLink } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import Layout from 'antd/es/layout'
+import { useTranslation } from 'react-i18next'
 const { Header } = Layout
-import { useTranslation } from "react-i18next";
 
 export const ProtectedLayout = () => {
-    const { user } = useAuth0()
-    const { t } = useTranslation();
+  const { user } = useAuth0()
+  const { t } = useTranslation()
 
   if (!user) {
-    return <Navigate to="/" />;
+    return <Navigate to="/" />
   }
 
   return (
@@ -24,8 +24,7 @@ export const ProtectedLayout = () => {
             <NavLink to="/useRef"> UseRef </NavLink>
             <NavLink to="/debounceDemo"> Debounce </NavLink>
             <NavLink to="/retryPromise"> Retry Promise </NavLink>
-            
-            
+
           </Header>
       <Outlet />
     </div>

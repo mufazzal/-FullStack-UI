@@ -7,14 +7,12 @@ import Spin from 'antd/es/spin'
 const UnAuthenticated = loadable(async () => await import('./UnAuthenticated'))
 const Authenticated = loadable(async () => await import('./Authenticated'))
 
-
 const AuthGateway = () => {
-  const [ isLogin, setLogin ] = useState(false)
+  const [isLogin, setLogin] = useState(false)
   const { isAuthenticated, user, getAccessTokenWithPopup, loginWithRedirect } = useAuth0()
   const [isLoading, setLoading] = useState<boolean | undefined>(false)
   const [error, setError] = useState<string | undefined>(undefined)
 
-  
   useEffect(() => {
     console.log('user?.name-->', user?.name)
     if (user?.name) {
@@ -40,7 +38,7 @@ const AuthGateway = () => {
   }
 
   const onLogin = (access_token: string) => {
-    localStorage.setItem('access_token', access_token);
+    localStorage.setItem('access_token', access_token)
     // (window as any).access_token = access_token
     setLogin(true)
     setupAxiosForAuthUser()
@@ -52,12 +50,12 @@ const AuthGateway = () => {
   }
 
   const renderUnAuthenticated = () => {
-    //return <UnAuthenticated onLogin={onLogin}/>
+    // return <UnAuthenticated onLogin={onLogin}/>
     return <Authenticated onLogout={onLogout} onLogin={onLogin}/>
   }
 
   const renderAuthenticated = () => {
-    return  <Spin spinning={isLoading}>
+    return <Spin spinning={isLoading}>
         <Authenticated onLogout={onLogout} onLogin={onLoginAttempted}/>
       </Spin>
   }

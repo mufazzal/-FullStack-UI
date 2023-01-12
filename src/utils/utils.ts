@@ -2,10 +2,9 @@ export const formatUserName = (username: string): string => {
   return '@' + username
 }
 
-export const delayedPromise = (delay: number, dummyData?: any) => {
-  return new Promise((res, rej) => {
-    if(dummyData) 
-      console.log(typeof dummyData === 'object' ? JSON.stringify(dummyData) : dummyData)
-    setTimeout(()=>{res('Done')}, delay)
+export const delayedPromise = async (delay: number, dummyData?: any) => {
+  return await new Promise((resolve, reject) => {
+    if (dummyData) { console.log(typeof dummyData === 'object' ? JSON.stringify(dummyData) : dummyData) }
+    setTimeout(() => { resolve('Done') }, delay)
   })
 }
