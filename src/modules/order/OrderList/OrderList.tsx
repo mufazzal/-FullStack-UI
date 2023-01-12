@@ -4,9 +4,9 @@ import { BaseProps } from '@modals/basePropsInterface'
 import { OrderModal } from '@modals/Order/order'
 // import { Avatar, Button, List, Skeleton } from 'antd';
 
-import Avatar from 'antd/es/avatar'
-import List from 'antd/es/list'
-import Skeleton from 'antd/es/skeleton'
+import Avatar from 'antd/lib/avatar'
+import List from 'antd/lib/list'
+import Skeleton from 'antd/lib/skeleton'
 
 import OrderDetailPanel from '../orderDetailPanel/OrderDetailPanel'
 

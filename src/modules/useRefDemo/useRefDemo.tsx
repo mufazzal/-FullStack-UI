@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 
 import { BaseProps } from '@modals/basePropsInterface'
-import Button from 'antd/es/button'
+import Button from 'antd/lib/button'
 
 interface UseRefDemoOwnProps extends BaseProps {
 }

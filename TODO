@@ -1,3 +1,10 @@
 More info from JWT token into the logs
 set HTTPS
 https://sentry.io/welcome/
+
+change all 
+import ___ from 'antd/lib/___'
+to 
+import Card from 'antd/es/card'
+for tree shaking
+

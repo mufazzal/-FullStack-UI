@@ -4,10 +4,10 @@ import { BaseProps } from '@modals/basePropsInterface'
 import { OrderDetailModal, OrderTrackingDetailModal, OrderedProductDetailModal, OrderPaymentDetailModal } from '@modals/Order/order'
 // import { Descriptions, Spin, Row, Col } from 'antd';
 
-import Descriptions from 'antd/es/descriptions'
-import Spin from 'antd/es/spin'
-import Row from 'antd/es/row'
-import Col from 'antd/es/col'
+import Descriptions from 'antd/lib/descriptions'
+import Spin from 'antd/lib/spin'
+import Row from 'antd/lib/row'
+import Col from 'antd/lib/col'
 
 import PaymentMethodes from '@modals/common/paymentMethodes'
 import OrderStatuses from '@modals/common/OrderStatus'

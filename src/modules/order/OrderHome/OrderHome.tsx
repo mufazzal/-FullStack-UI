@@ -2,10 +2,10 @@ import React, { Dispatch } from 'react'
 // import './OrderHome.css';
 // import { Button, Col, Row, Badge, Descriptions } from 'antd';
 
-import Button from 'antd/es/button'
-import Col from 'antd/es/col'
-import Row from 'antd/es/row'
-import Descriptions from 'antd/es/descriptions'
+import Button from 'antd/lib/button'
+import Col from 'antd/lib/col'
+import Row from 'antd/lib/row'
+import Descriptions from 'antd/lib/descriptions'
 
 import SearchOutlined from '@ant-design/icons/SearchOutlined'
 import PlusCircleOutlined from '@ant-design/icons/PlusCircleOutlined'

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
-import Select from 'antd/es/select'
+import Select from 'antd/lib/select'
 
 const LangChange = (props: any) => {
   const langs = [{

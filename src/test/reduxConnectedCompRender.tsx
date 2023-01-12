@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { rootReducer } from '../redux/rootReducer'
 import AppState from '../interfaces/redux/BaseState'
 
-const reduxConnectedCompRender = async (ui: React.ReactElement, reduxState: AppState, { ...renderOptions }): any => {
+const reduxConnectedCompRender = async (ui: React.ReactElement, reduxState: AppState, { ...renderOptions }): Promise<any> => {
   const store = configureStore({ reducer: rootReducer, preloadedState: reduxState })
 
   const Wrapper = ({ children }: { children: any }) => (

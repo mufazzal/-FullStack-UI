@@ -3,9 +3,9 @@ import { BaseProps } from '@modals/basePropsInterface'
 import { SupportSnapshot } from '@modals/support/support'
 // import { Card, Descriptions, PageHeader } from 'antd';
 
-import Descriptions from 'antd/es/descriptions'
-import Card from 'antd/es/card'
-import PageHeader from 'antd/es/page-header'
+import Descriptions from 'antd/lib/descriptions'
+import Card from 'antd/lib/card'
+import PageHeader from 'antd/lib/page-header'
 
 import AppSate from '@modals/redux/BaseState'
 import { connect } from 'react-redux'
@@ -34,7 +34,7 @@ const OrderHomeWidget: React.FC<OrderHomeWidgetProps> = (props: OrderHomeWidgetP
   }, [])
 
   const expensiveValue = React.useMemo(() => {
-    return new Date(props.orderHWData?.lastStatusTime ? props.orderHWData?.lastStatusTime * 1000 : 0).toString()
+    return new Date(props.orderHWData?.lastStatusTime ? parseInt(props.orderHWData?.lastStatusTime) * 1000 : 0).toString()
   }, [props.orderHWData?.lastStatusTime])
 
   // React.useEffect(() => {

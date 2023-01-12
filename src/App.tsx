@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import AuthGateway from '@modules/auth/authGateway'
-import PageHeader from 'antd/es/page-header'
+import AuthGateway from '@modules/auth/AuthGateway'
+import PageHeader from 'antd/lib/page-header'
 import LangChange from '@modules/LangChange'
 import { useTranslation } from 'react-i18next'
 import '../i18n/i18n'

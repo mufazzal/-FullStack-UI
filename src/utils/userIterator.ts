@@ -43,8 +43,8 @@ const users = [
 
 function * iterateUsers (coll: [any], selectorFunction: (user: User) => boolean) {
   for (const ele in coll) {
-    if (typeof ele === 'object' && ele.type === 'user') {
-      const iUser = { name: ele.name }
+    if (typeof ele === 'object' && (ele as any).type === 'user') {
+      const iUser = { name: (ele as any).name }
       yield iUser
       // if (ele.connections) {
 

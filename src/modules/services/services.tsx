@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { BaseProps } from '@modals/basePropsInterface'
 // import { Avatar, List } from 'antd';
-import Avatar from 'antd/es/avatar'
-import List from 'antd/es/list'
+import Avatar from 'antd/lib/avatar'
+import List from 'antd/lib/list'
 
 import { ServiceItemModal } from '@modals/services/serviceItem'
 import { setServices, fetchServiceList } from '@modules/services/redux/serviceList/serviceListSlice'

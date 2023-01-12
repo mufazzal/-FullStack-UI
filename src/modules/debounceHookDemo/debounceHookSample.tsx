@@ -1,14 +1,14 @@
 import React, { useRef, useState } from 'react'
 
 import { BaseProps } from '@modals/basePropsInterface'
-import Input from 'antd/es/input/Input'
+import Input from 'antd/lib/input/Input'
 import useFuntionDebounce from './debounceHook'
 
 interface debounceHookSampleOwnProps extends BaseProps {
 }
 
 const DebounceHookSample: React.FC<debounceHookSampleOwnProps> = (props: debounceHookSampleOwnProps) => {
-  const fetchBasedOnQuery = ({ query }) => {
+  const fetchBasedOnQuery = ({ query }: any) => {
     console.log(query)
   }
   const [attemptCall] = useFuntionDebounce(fetchBasedOnQuery, 5000)

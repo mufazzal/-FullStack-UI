@@ -1,5 +1,5 @@
 // import { Breadcrumb, Layout, Menu } from 'antd';
-import Layout from 'antd/es/layout'
+import Layout from 'antd/lib/layout'
 
 import React, { useEffect } from 'react'
 // import OrderIndex from './modules/order/index'
@@ -13,7 +13,7 @@ import { BaseProps } from '@modals/basePropsInterface'
 import { Provider } from 'react-redux'
 import builConfig from '../../../appConfig/buildConfig'
 import { loadModuleTxFile } from '../../../i18n/i18n'
-import { ProtectedLayout } from './PRotectedRoute'
+import { ProtectedLayout } from './ProtectedRoute'
 import LandingLayout from './LandingLayout'
 import LandingPage from '@modules/LandingPage'
 import LoginButton from './LoginButton'

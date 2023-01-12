@@ -1,11 +1,11 @@
 import { BaseProps } from '@modals/basePropsInterface'
 import React, { useEffect, useState } from 'react'
-import Table from 'antd/es/table'
-import type { ColumnsType } from 'antd/es/table'
-import Button from 'antd/es/button'
+import Table from 'antd/lib/table'
+import type { ColumnsType } from 'antd/lib/table'
+import Button from 'antd/lib/button'
 
 import { w3cwebsocket } from 'websocket'
-import notification from 'antd/es/notification'
+import notification from 'antd/lib/notification'
 
 interface WebSocketDemoOwnFormProps extends BaseProps {
   onRefreshEvent?: (isManual: boolean | undefined) => boolean
@@ -61,14 +61,14 @@ const LiveSale: React.FC<WebSocketDemoOwnFormProps> = (props: WebSocketDemoOwnFo
     })
   }
 
-  const handleInventoryDataUpdate = (inventory) => {
+  const handleInventoryDataUpdate = (inventory: any) => {
     setInventory(inventory)
   }
 
   const onConnectionOpen = () => {
     console.log('Connection opened')
   }
-  const onMessageFromServer = (signal) => {
+  const onMessageFromServer = (signal: any) => {
     const serverSignal = JSON.parse(signal.data)
     console.log(serverSignal)
     if (serverSignal.type === 'inventoryQuota' || serverSignal.type === 'inventoryQuotaUpdate') {
@@ -84,7 +84,7 @@ const LiveSale: React.FC<WebSocketDemoOwnFormProps> = (props: WebSocketDemoOwnFo
       setBookingItem(null)
     }
   }
-  const onBookItemClick = (item) => {
+  const onBookItemClick = (item: any) => {
     console.log(item)
     client.send(JSON.stringify({ invType: item.type, userId: 123, task: 'allocate' }))
     // setBookingItem(item)

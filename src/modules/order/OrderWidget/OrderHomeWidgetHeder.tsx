@@ -1,8 +1,8 @@
 import React from 'react'
 // import { Button, Descriptions, PageHeader } from 'antd';
 
-import Button from 'antd/es/button'
-import PageHeader from 'antd/es/page-header'
+import Button from 'antd/lib/button'
+import PageHeader from 'antd/lib/page-header'
 
 import { BaseProps } from '@modals/basePropsInterface'
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { BaseProps } from '@modals/basePropsInterface'
 // import { Button } from 'antd';
-import Button from 'antd/es/button'
+import Button from 'antd/lib/button'
 import { useTranslation } from 'react-i18next'
 
 interface LogoutButtonOwnProps extends BaseProps {

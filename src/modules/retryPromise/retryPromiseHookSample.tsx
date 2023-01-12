@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 
 import { BaseProps } from '@modals/basePropsInterface'
-import Input from 'antd/es/input/Input'
+import Input from 'antd/lib/input/Input'
 import useRetryPromise, { RetrialStateInfo } from './retryPromiseHook'
 import { Button } from 'antd'
 import { delayedPromise } from '@utils/utils'

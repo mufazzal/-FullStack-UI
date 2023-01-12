@@ -29,6 +29,14 @@ pipeline {
             }
         }    
 
+        stage('Compiling') {
+            steps {
+                echo 'Compiling in progress..'
+                bat "npm run compile"
+                echo 'Compiling Finished'
+            }
+        }
+
         stage('Build') {
             steps {
                 echo 'Building in progress..'

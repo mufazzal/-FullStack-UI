@@ -5,8 +5,8 @@ import { OrderModal, OrderSearchQuery } from '@modals/Order/order'
 import OrderSearchForm from '../OrderSearchForm'
 // import { Modal, Divider } from 'antd';
 
-import Modal from 'antd/es/modal'
-import Divider from 'antd/es/divider'
+import Modal from 'antd/lib/modal'
+import Divider from 'antd/lib/divider'
 
 interface OrderDetailPanelOwnProps extends BaseProps {
   order: OrderModal

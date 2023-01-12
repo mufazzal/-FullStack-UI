@@ -1,4 +1,7 @@
-/*eslint-disable */
+declare const __STAGE__: string;
+declare const __VERSION__: string;
+declare const __BUILD__: string;
+declare const __IS_NODE_PRODUCTION__: string;
 
 const builConfig = {
     STAGE: __STAGE__,

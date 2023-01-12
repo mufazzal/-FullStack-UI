@@ -4,11 +4,11 @@ import { BaseProps } from '@modals/basePropsInterface'
 import { OrderSearchQuery } from '@modals/Order/order'
 // import { Avatar, Button, List, Skeleton, Input } from 'antd';
 
-import Avatar from 'antd/es/avatar'
-import Button from 'antd/es/button'
-import List from 'antd/es/list'
-import Skeleton from 'antd/es/skeleton'
-import Input from 'antd/es/input'
+import Avatar from 'antd/lib/avatar'
+import Button from 'antd/lib/button'
+import List from 'antd/lib/list'
+import Skeleton from 'antd/lib/skeleton'
+import Input from 'antd/lib/input'
 
 const { Search } = Input
 

@@ -6,7 +6,7 @@ import { Button, Tooltip, Upload, UploadProps } from 'antd'
 import { delayedPromise } from '@utils/utils'
 
 import { BaseProps } from '@modals/basePropsInterface'
-import { RcFile, UploadFile } from 'antd/es/upload/interface'
+import { RcFile, UploadFile } from 'antd/lib/upload/interface'
 
 interface UploadDemosOwnProps extends BaseProps {
 }

@@ -3,8 +3,8 @@ import { BaseProps } from '@modals/basePropsInterface'
 import { SupportSnapshot } from '@modals/support/support'
 // import { Card, Descriptions } from 'antd';
 
-import Descriptions from 'antd/es/descriptions'
-import Card from 'antd/es/card'
+import Descriptions from 'antd/lib/descriptions'
+import Card from 'antd/lib/card'
 
 import LiveTicketWidgetHeader from './Header'
 import useSafeFetch from '@utils/useSafeFetch'

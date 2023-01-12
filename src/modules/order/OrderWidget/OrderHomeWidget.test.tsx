@@ -12,7 +12,8 @@ import { act } from 'react-dom/test-utils'
 /*eslint-disable */
 beforeEach(() => {
   console.log('-----beforeEach: file level------')
-  fetch.resetMocks()
+  const _fetch: any = fetch
+  _fetch.resetMocks()
 })
 afterEach(() => {
   console.log('-----afterEach: file level------')
@@ -31,7 +32,8 @@ describe('Testing Order Home widget Success', () => {
   beforeAll(() => {
     console.log('--------beforeAll: in describe 1---------')
 
-    fetch.mockResponse(JSON.stringify({ totalOrder: 100, pendingOrder: 75, canceledOrder: 25 }))
+    const _fetch: any = fetch
+    _fetch.mockResponse(JSON.stringify({ totalOrder: 100, pendingOrder: 75, canceledOrder: 25 }))
     reduxConnectedCompRender(<><OrderHomeWidget /></>, orderHomeWidgetReduxState, {})
   })
 
@@ -59,7 +61,8 @@ describe('Testing Order Home widget Success', () => {
 
   it('Shoud updare UI on click refresh', async () => {
     console.log('--------it: in third---------')
-    fetch.mockResponse(JSON.stringify({ totalOrder: 507567, pendingOrder: 35, canceledOrder: 15 }))
+    const _fetch: any = fetch
+    _fetch.mockResponse(JSON.stringify({ totalOrder: 507567, pendingOrder: 35, canceledOrder: 15 }))
 
     fireEvent.click(screen.getByTestId('refresh'))
     const newTotalVal = await screen.findByText('507567')
@@ -80,7 +83,8 @@ describe('Testing Order Home widget API Fail', () => {
   beforeAll(() => {
     console.log('--------beforeAll: in describe 2---------')
 
-    fetch.mockReject('fake error message')
+    const _fetch: any = fetch
+    _fetch.mockReject('fake error message')
     reduxConnectedCompRender(<><OrderHomeWidget /></>, orderHomeWidgetReduxState, {})
   })
 

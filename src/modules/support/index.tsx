@@ -1,6 +1,6 @@
 import React from 'react'
 import LiveTicketWidget from './liveTicketWidget'
-import PageHeader from 'antd/es/page-header'
+import PageHeader from 'antd/lib/page-header'
 import { useTranslation } from 'react-i18next'
 
 const SupportIndex = (props: any) => {

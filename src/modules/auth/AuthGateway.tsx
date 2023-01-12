@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import loadable from '@loadable/component'
 import setupAxiosForAuthUser from '@utils/axiosSetup'
 import { useAuth0 } from '@auth0/auth0-react'
-import Spin from 'antd/es/spin'
+import Spin from 'antd/lib/spin'
 
 const UnAuthenticated = loadable(async () => await import('./UnAuthenticated'))
 const Authenticated = loadable(async () => await import('./Authenticated'))

@@ -1,8 +1,8 @@
 import SearchOutlined from '@ant-design/icons/SearchOutlined'
 import { BaseProps } from '@modals/basePropsInterface'
 // import { Button, Radio, RadioChangeEvent } from 'antd';
-import Button from 'antd/es/button'
-import Radio, { RadioChangeEvent } from 'antd/es/radio'
+import Button from 'antd/lib/button'
+import Radio, { RadioChangeEvent } from 'antd/lib/radio'
 import React, { useEffect, useState } from 'react'
 
 interface RefresherOwnFormProps extends BaseProps {

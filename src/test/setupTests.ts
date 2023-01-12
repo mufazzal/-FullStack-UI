@@ -12,8 +12,6 @@ const init = () => {
   self.IS_REACT_ACT_ENVIRONMENT = true
   // @ts-expect-error
   window.IS_REACT_ACT_ENVIRONMENT = true
-  // @ts-expect-error
-  // this.IS_REACT_ACT_ENVIRONMENT = true
 
   Object.defineProperty(window, 'matchMedia', {
     writable: true,

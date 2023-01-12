@@ -12,14 +12,14 @@ import ORDER_FORM_MODE from './orderFormMode'
 //     Typography
 // } from 'antd';
 
-import Button from 'antd/es/button'
-import DatePicker from 'antd/es/date-picker'
-import Form from 'antd/es/form'
-import Input from 'antd/es/input'
-import InputNumber from 'antd/es/input-number'
-import Select from 'antd/es/select'
-import Switch from 'antd/es/switch'
-import Typography from 'antd/es/typography'
+import Button from 'antd/lib/button'
+import DatePicker from 'antd/lib/date-picker'
+import Form from 'antd/lib/form'
+import Input from 'antd/lib/input'
+import InputNumber from 'antd/lib/input-number'
+import Select from 'antd/lib/select'
+import Switch from 'antd/lib/switch'
+import Typography from 'antd/lib/typography'
 
 const { Title } = Typography
 

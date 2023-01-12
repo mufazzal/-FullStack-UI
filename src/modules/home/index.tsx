@@ -7,7 +7,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import LogoutButton from '@modules/auth/LogoutButton'
 
 import { useNavigate, NavLink } from 'react-router-dom'
-import Button from 'antd/es/button'
+import Button from 'antd/lib/button'
 
 const Home = (props: any) => {
   const appContext: AppContextInt = useContext<AppContextInt>(AppContext)
