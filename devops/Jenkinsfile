@@ -9,14 +9,14 @@ pipeline {
 
         stage('Versioning') {
             steps {
-                sh 'printenv'
+                bat 'printenv'
             }
         }       
 
         stage('Installing') {
             steps {
                 echo 'Installation in progress..'
-                sh 'npm install'
+                bat 'npm install'
                 echo 'Installation Finished'
             }
         }     
@@ -24,7 +24,7 @@ pipeline {
         stage('Lint') {
             steps {
                 echo 'Linting in progress..'
-                sh 'npm run lint'
+                bat 'npm run lint'
                 echo 'Linting Finished'
             }
         }    
@@ -32,8 +32,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building in progress..'
-                sh 'npm run preBuild'
-                sh "npm run build:${build_mode}"
+                bat 'npm run preBuild'
+                bat "npm run build:${build_mode}"
                 echo 'Building Finished'
             }
         }
@@ -41,7 +41,7 @@ pipeline {
         stage('Post Build') {
             steps {
                 echo 'Post Building in progress..'
-                sh 'npm run postBuild'
+                bat 'npm run postBuild'
                 echo 'Post Building Finished'
             }
         }
@@ -49,7 +49,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing in progress..'
-                sh 'npm run test'
+                bat 'npm run test'
                 echo 'Testing Finished'
             }
         }
@@ -57,7 +57,7 @@ pipeline {
         stage('Archiving') {
             steps {
                 echo 'Archiving in progress..'
-                sh """
+                bat """
                 cd outputs
                 zip -r -qq ${finalArtifactName}.${build_mode} dist/${build_mode}
                 cd ..
