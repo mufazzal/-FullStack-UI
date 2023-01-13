@@ -3,7 +3,7 @@ pipeline {
     tools {nodejs "nodejs"}
     environment {
         build_mode = "stage" 
-        finalArtifactName = "$GIT_BRANCH.$GIT_COMMIT.$BUILD_ID" + ".zip"
+        finalArtifactName = "$GIT_BRANCH.$GIT_COMMIT.$BUILD_ID" + ".stage.zip"
     }
     stages {
 
@@ -66,8 +66,7 @@ pipeline {
             steps {
                 echo 'Archiving in progress..'
                 bat """
-                cd outputs
-                zip -r -qq ${finalArtifactName}.${build_mode} dist/${build_mode}
+                zip -r -qq ${finalArtifactName} dist/${build_mode}
                 cd ..
                 """
                 echo 'Archiving Finished'
