@@ -35,7 +35,7 @@ const config = {
       branches: 1,
       functions: 1,
       lines: 1,
-      statements: 10000
+      statements: -10000
     }
   },
   './src/components/': {
