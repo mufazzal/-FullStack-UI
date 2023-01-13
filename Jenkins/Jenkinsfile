@@ -66,7 +66,7 @@ pipeline {
             steps {
                 echo 'Archiving in progress..'
                 bat """
-                7z -r -qq ${finalArtifactName} dist/${build_mode}
+                7z a myzip ${finalArtifactName} ./dist/${build_mode}/*
                 cd ..
                 """
                 echo 'Archiving Finished'
