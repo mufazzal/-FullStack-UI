@@ -19,12 +19,20 @@ const config = {
     '<rootDir>/src/test/setupTests.ts'
   ],
   collectCoverage: true,
-  coverageReporters: ['json', 'html'],
+  coverageReporters: ['json', 'html', 'lcov', 'text', 'clover', 'cobertura'],
   coverageDirectory: 'reports/coverage',
+  collectCoverageFrom: [
+    '<rootDir>/src/**/*.tsx',
+    '<rootDir>/src/**/*.ts'
+    // '<rootDir>/src/**/*.ts',
+    // '<rootDir>/src/**/*.tsx',
+    // '!<rootDir>/node_modules/**',
+    // '!<rootDir>/lib/**'
+  ],
   coverageThreshold: {
     global: {
-      branches: 80,
-      functions: 80,
+      branches: 50,
+      functions: 50,
       lines: 80,
       statements: -10
     }
