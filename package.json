@@ -27,7 +27,7 @@
     "postBuild": "echo nothing for now",
     "start:stage_no_node_module": "cross-env NODE_ENV=development node dist/stage/express/server.js",
     "compile": "node node_modules/typescript/bin/tsc --outDir lib --declaration",
-    "test": "jest"
+    "test": "jest -i"
   },
   "eslintConfig": {
     "extends": [
