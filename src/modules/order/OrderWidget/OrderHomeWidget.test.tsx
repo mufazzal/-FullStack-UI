@@ -6,7 +6,7 @@ import { act } from 'react-dom/test-utils'
 import MockAdapter from 'axios-mock-adapter'
 import axios from 'axios'
 
-var mockAxios = new MockAdapter(axios);
+var mockAxios = new MockAdapter(axios)
 
 // beforeAll(() => {
 //   init()
