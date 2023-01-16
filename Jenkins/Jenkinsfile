@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {nodejs "nodejs"}
     environment {
-        finalArtifactName = "$GIT_BRANCH.$GIT_COMMIT.$BUILD_ID" + ".stage.7z" //.zip
+        finalArtifactNamePrefix = "$GIT_BRANCH.$GIT_COMMIT.$BUILD_ID" //.zip
         dockerHubRepo = "mufazzal/full-stack-front-end"
     }
     stages {
@@ -70,14 +70,14 @@ pipeline {
             steps {
                 echo 'Archiving stage build in progress..'
                 bat """
-                7z a ${finalArtifactName} ./dist/stage/*
+                7z a "${finalArtifactNamePrefix}.stage.7z" ./dist/stage/*
                 cd ..
                 """
                 echo 'Archiving stage Finished'
 
                 echo 'Archiving prod build in progress..'
                 bat """
-                7z a ${finalArtifactName} ./dist/prod/*
+                7z a "${finalArtifactNamePrefix}.prod.7z" ./dist/prod/*
                 """
                 echo 'Archiving prod Finished'                
             }
@@ -91,14 +91,9 @@ pipeline {
                     //def customImage = docker.build("my-image:${env.BUILD_ID}", "./Docker") 
 
                     bat """
-                        echo "$pwd"
+                        cd
                         ls
-                        docker build \
-                            -f Docker/Dockerfile \
-                            -t $dockerHubRepo:$GIT_BRANCH-latest \
-                            -t $dockerHubRepo:$GIT_BRANCH-$BUILD_ID \
-                            -t $dockerHubRepo:$GIT_BRANCH-$GIT_COMMIT \
-                            .
+                        docker build -f Docker/Dockerfile -t $dockerHubRepo:$GIT_BRANCH-latest -t $dockerHubRepo:$GIT_BRANCH-$BUILD_ID -t $dockerHubRepo:$GIT_BRANCH-$GIT_COMMIT .
                     """
                     echo "Building docker image finish"
                     echo "Images build locally :-"
