@@ -92,6 +92,8 @@ pipeline {
                     //def customImage = docker.build("my-image:${env.BUILD_ID}", "./Docker") 
 
                     sh """
+                        pwd
+                        ls
                         docker build \
                             -f Docker/Dockerfile \
                             -t $dockerHubRepo:$GIT_BRANCH-latest \
