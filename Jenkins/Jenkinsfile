@@ -95,9 +95,9 @@ pipeline {
                             -f Docker/Dockerfile ^
                             --progress=plain ^
                             --build-arg type=stage ^
-                            -t $dockerHubRepo:$GIT_BRANCH-latest ^
-                            -t $dockerHubRepo:$GIT_BRANCH-$BUILD_ID ^
-                            -t $dockerHubRepo:$GIT_BRANCH-$GIT_COMMIT ^
+                            -t $dockerHubRepo:$GIT_BRANCH-stage-latest ^
+                            -t $dockerHubRepo:$GIT_BRANCH-stage-$BUILD_ID ^
+                            -t $dockerHubRepo:$GIT_BRANCH-stage-$GIT_COMMIT ^
                             .
                     """
                     echo "Building docker image for Prod"
@@ -109,9 +109,9 @@ pipeline {
                             -f Docker/Dockerfile ^
                             --progress=plain ^
                             --build-arg type=prod ^
-                            -t $dockerHubRepo:$GIT_BRANCH-latest ^
-                            -t $dockerHubRepo:$GIT_BRANCH-$BUILD_ID ^
-                            -t $dockerHubRepo:$GIT_BRANCH-$GIT_COMMIT ^
+                            -t $dockerHubRepo:$GIT_BRANCH-prod-latest ^
+                            -t $dockerHubRepo:$GIT_BRANCH-prod-$BUILD_ID ^
+                            -t $dockerHubRepo:$GIT_BRANCH-prod-$GIT_COMMIT ^
                             .
                     """                    
                     echo "Building docker image finish"
