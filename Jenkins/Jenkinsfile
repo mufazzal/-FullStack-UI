@@ -86,15 +86,34 @@ pipeline {
         stage('Dockerizing') {
             steps {
                 script {
-                    echo "Building docker image"
-                    
-                    //def customImage = docker.build("my-image:${env.BUILD_ID}", "./Docker") 
+                    echo "Building docker image for Stage"
+
+                    //docker build -f Docker/Dockerfile -t mufazzal/fs_front_end:stage --progress=plain --build-arg type=stage .
 
                     bat """
-                        cd
-                        ls
-                        docker build -f Docker/Dockerfile -t $dockerHubRepo:$GIT_BRANCH-latest -t $dockerHubRepo:$GIT_BRANCH-$BUILD_ID -t $dockerHubRepo:$GIT_BRANCH-$GIT_COMMIT .
+                        docker build ^
+                            -f Docker/Dockerfile ^
+                            --progress=plain ^
+                            --build-arg type=stage ^
+                            -t $dockerHubRepo:$GIT_BRANCH-latest ^
+                            -t $dockerHubRepo:$GIT_BRANCH-$BUILD_ID ^
+                            -t $dockerHubRepo:$GIT_BRANCH-$GIT_COMMIT ^
+                            .
                     """
+                    echo "Building docker image for Prod"
+
+                    //docker build -f Docker/Dockerfile -t mufazzal/fs_front_end:stage --progress=plain --build-arg type=stage .
+
+                    bat """
+                        docker build ^
+                            -f Docker/Dockerfile ^
+                            --progress=plain ^
+                            --build-arg type=prod ^
+                            -t $dockerHubRepo:$GIT_BRANCH-latest ^
+                            -t $dockerHubRepo:$GIT_BRANCH-$BUILD_ID ^
+                            -t $dockerHubRepo:$GIT_BRANCH-$GIT_COMMIT ^
+                            .
+                    """                    
                     echo "Building docker image finish"
                     echo "Images build locally :-"
                     bat """
