@@ -44,7 +44,7 @@ pipeline {
                 echo 'Testing Finished'
             }
         }
-        
+
         stage('Build:stage') {
             steps {
                 echo 'Building:stage in progress..'
@@ -70,14 +70,14 @@ pipeline {
             steps {
                 echo 'Archiving stage build in progress..'
                 bat """
-                7z a ${finalArtifactName} ./dist/${stage}/*
+                7z a ${finalArtifactName} ./dist/stage/*
                 cd ..
                 """
                 echo 'Archiving stage Finished'
 
                 echo 'Archiving prod build in progress..'
                 bat """
-                7z a ${finalArtifactName} ./dist/${prod}/*
+                7z a ${finalArtifactName} ./dist/prod/*
                 cd ..
                 """
                 echo 'Archiving prod Finished'                
