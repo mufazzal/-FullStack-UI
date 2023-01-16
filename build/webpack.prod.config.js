@@ -8,7 +8,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 const { PROD } = require('./_mode')
 const webpackBaseConfig = require('./webpack.base.config')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const { getCopyAssetPlugin } = require('./plugin')
+const { getCopyAssetPlugin, getCopyExpressServer, installProdDependenciesOnly } = require('./plugin')
 
 const webpackBaseProdConfig = webpackBaseConfig(PROD)
 
@@ -49,7 +49,9 @@ const webpackProdConfig = {
     ...webpackBaseProdConfig.plugins,
     miniCssExtractPluginInstance,
     bundleAnalyzerPluginInst,
-    getCopyAssetPlugin(PROD)
+    getCopyAssetPlugin(PROD),
+    getCopyExpressServer(PROD),
+    installProdDependenciesOnly(PROD)
   ]
 }
 
