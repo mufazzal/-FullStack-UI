@@ -78,7 +78,6 @@ pipeline {
                 echo 'Archiving prod build in progress..'
                 bat """
                 7z a ${finalArtifactName} ./dist/prod/*
-                cd ..
                 """
                 echo 'Archiving prod Finished'                
             }
@@ -91,8 +90,8 @@ pipeline {
                     
                     //def customImage = docker.build("my-image:${env.BUILD_ID}", "./Docker") 
 
-                    sh """
-                        pwd
+                    bat """
+                        echo "$pwd"
                         ls
                         docker build \
                             -f Docker/Dockerfile \
@@ -103,7 +102,7 @@ pipeline {
                     """
                     echo "Building docker image finish"
                     echo "Images build locally :-"
-                    sh """
+                    bat """
                         docker images
                     """
                 }
@@ -114,7 +113,7 @@ pipeline {
             steps {
 
                 withCredentials([usernamePassword(credentialsId: "$dockerHubCredId", usernameVariable: 'USERNAME_DOCKER_HUB', passwordVariable: 'PASSWORD_DOCKER_HUB')]) {
-                    sh """
+                    bat """
 
                         docker login --username $USERNAME_DOCKER_HUB --password $PASSWORD_DOCKER_HUB
 
@@ -130,7 +129,7 @@ pipeline {
 
         stage('Clean up') {
             steps {
-                sh """
+                bat """
                     docker rmi $dockerHubRepo:$GIT_BRANCH-latest
                     docker rmi $dockerHubRepo:$GIT_BRANCH-$BUILD_ID
                     docker rmi $dockerHubRepo:$GIT_BRANCH-$GIT_COMMIT
