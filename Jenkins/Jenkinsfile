@@ -37,6 +37,14 @@ pipeline {
             }
         }
 
+        stage('Test') {
+            steps {
+                echo 'Testing in progress..'
+                bat 'npm run test'
+                echo 'Testing Finished'
+            }
+        }
+        
         stage('Build:stage') {
             steps {
                 echo 'Building:stage in progress..'
@@ -57,13 +65,6 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                echo 'Testing in progress..'
-                bat 'npm run test'
-                echo 'Testing Finished'
-            }
-        }
 //zip -r -qq ${finalArtifactName} dist/${build_mode}
         stage('Archiving') {
             steps {
