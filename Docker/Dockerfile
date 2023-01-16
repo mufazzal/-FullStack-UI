@@ -11,7 +11,7 @@ WORKDIR /usr/src/apps/FullStack_FrontEnd
 
 COPY ./dist/$type .
 
-RUN echo comtent in $PWD
+RUN echo cotent in $PWD
 RUN ls
 
 EXPOSE 3100
@@ -20,7 +20,7 @@ EXPOSE 3100
 
 CMD ["npm", "run", "start", "docker"]
 
-# docker build -f Docker/Dockerfile -t mufazzal/fs_front_end:stag --progress=plain --build-arg type=stage .
-# docker build -f Docker/Dockerfile -t mufazzal/fs_front_end:prod --build-arg type=prod .
-# docker run -it -p 3100:3010 -e mufazzal/fs_front_end:stag
+# docker build -f Docker/Dockerfile -t mufazzal/fs_front_end:stage --progress=plain --build-arg type=stage .
+# docker build -f Docker/Dockerfile -t mufazzal/fs_front_end:prod --progress=plain --build-arg type=prod .
+# docker run -it -p 3100:3100 -e mufazzal/fs_front_end:stage
 # docker push mufazzal/hellonode:local
