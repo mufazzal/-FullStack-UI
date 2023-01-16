@@ -1,6 +1,7 @@
 More info from JWT token into the logs
 set HTTPS
 https://sentry.io/welcome/
+web-vitals
 
 change all 
 import ___ from 'antd/lib/___'
