@@ -40,9 +40,9 @@ pipeline {
         stage('Build:stage') {
             steps {
                 echo 'Building:stage in progress..'
-                bat 'npm run preBuild:stage'
+                //bat 'npm run preBuild:stage'
                 bat "npm run build:stage"
-                bat 'npm run postBuild:stage'
+                //bat 'npm run postBuild:stage'
                 echo 'Building:stage Finished'
             }
         }
@@ -50,9 +50,9 @@ pipeline {
         stage('Build:prod') {
             steps {
                 echo 'Building:prod in progress..'
-                bat 'npm run preBuild:prod'
+                //bat 'npm run preBuild:prod'
                 bat "npm run build:prod"
-                bat 'npm run postBuild:prod'                
+                //bat 'npm run postBuild:prod'                
                 echo 'Building:prod Finished'
             }
         }
