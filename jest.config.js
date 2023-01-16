@@ -6,7 +6,7 @@ const config = {
   },
   verbose: false,
   silent: true,
-  roots: ['<rootDir>/src/'],
+  roots: ['<rootDir>/src/', '<rootDir>/express/'],
   testEnvironment: 'jsdom',
   moduleNameMapper: {
     '^@modals(.*)$': '<rootDir>/src/interfaces$1',
@@ -24,7 +24,8 @@ const config = {
   coverageDirectory: 'reports/coverage',
   collectCoverageFrom: [
     '<rootDir>/src/**/*.tsx',
-    '<rootDir>/src/**/*.ts'
+    '<rootDir>/src/**/*.ts',
+    '<rootDir>/express/**/*.ts'
     // '<rootDir>/src/**/*.ts',
     // '<rootDir>/src/**/*.tsx',
     // '!<rootDir>/node_modules/**',

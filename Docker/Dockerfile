@@ -1,7 +1,7 @@
 FROM node:alpine
 ARG type=stage
 
-RUN apk --no-cache add curl
+# RUN apk --no-cache add curl
 
 RUN echo Building Docker image
 
@@ -9,11 +9,10 @@ RUN mkdir -p /usr/src/apps/FullStack_FrontEnd
 
 WORKDIR /usr/src/apps/FullStack_FrontEnd
 
-RUN echo $PWD
-
-RUN ls
-
 COPY ./dist/$type .
+
+RUN echo comtent in $PWD
+RUN ls
 
 EXPOSE 3100
 

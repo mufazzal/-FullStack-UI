@@ -4,22 +4,23 @@
   "private": true,
   "dependencies": {
     "@elastic/ecs-winston-format": "^1.3.1",
+    "busboy": "^1.6.0",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
+    "express": "^4.18.2",
     "express-jwt": "^8.2.1",
     "express-jwt-scope": "^1.0.0",
     "helmet": "^6.0.1",
     "jwks-rsa": "^3.0.0",
     "jwt-decode": "^3.1.2",
-    "winston": "^3.8.2",
-    "busboy": "^1.6.0"
+    "winston": "^3.8.2"
   },
   "scripts": {
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "start:__legacy": "webpack-dev-server --open --env=_mode=dev --hot",
-    "start:dev": "cross-env NODE_ENV=development node express/server.js",
     "start:___prod": "cross-env NODE_ENV=production node express/server.js",
+    "start:dev": "cross-env NODE_ENV=development node express/server.js",
     "start": "cross-env NODE_ENV=production node express/server.js",
     "preBuild": "echo nothing for now",
     "build": "webpack --mode production",
